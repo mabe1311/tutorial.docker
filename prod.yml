@@ -5,8 +5,16 @@ services:
       file: common.yml
       service: dockerapp
     image: mabe1311/dockerapp
+    networks:
+      - mynet
 
   redis:
     extends:
       file: common.yml
       service: redis
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: overlay
